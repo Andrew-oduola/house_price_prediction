@@ -65,19 +65,21 @@ def main():
     """)
 
     # Create a two-column layout for input fields
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         area = st.number_input("Area of the house (in sqft)", value=3121, help="Area of the house in square feet")
         bedrooms = st.number_input("Number of bedrooms", value=4, help="Number of bedrooms in the house")
         bathrooms = st.number_input("Number of bathrooms", value=2, help="Number of bathrooms in the house")
         stories = st.number_input("Number of floors (stories)", value=2, help="Number of floors in the house (stories)")
+
+    with col2:
         parking = st.number_input("Number of parking spaces", value=2, help="Number of parking spaces in the house")
         mainroad = st.selectbox("Mainroad", ["Yes", "No"], help="Is the house located near the main road?")
-        
-    with col2:    
         guestroom = st.selectbox("Guestroom", ["Yes", "No"], help="Does the house have a guest room?")
         basement = st.selectbox("Basement", ["Yes", "No"], help="Does the house have a basement?")
+        
+    with col3:    
         hotwaterheating = st.selectbox("Hot water heating", ["Yes", "No"], help="Does the house have hot water heating?")
         airconditioning = st.selectbox("Air conditioning", ["Yes", "No"], help="Does the house have air conditioning?")
         prefarea = st.selectbox("Preferred area", ["Yes", "No"], help="Is the house located in a preferred area?")
@@ -99,8 +101,8 @@ def main():
     # When the "Predict" button is clicked, make the prediction and display the result
     if st.button("Predict"):
         prediction = predict(input_data)
-        st.header("Prediction Result:")
-        print(prediction)
+        # st.header("Prediction Result:")
+        # print(prediction)
         st.success(f"Predicted House Price: ${prediction[0]:,.2f}")
 
     st.sidebar.title("About")
