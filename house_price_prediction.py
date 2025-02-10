@@ -108,6 +108,7 @@ def main():
         # st.header("Prediction Result:")
         # print(prediction)
         result_placeholder.success(f"Predicted House Price: ${prediction[0]:,.2f}")
+        st.success(f"Predicted House Price: ${prediction[0]:,.2f}")
         # st.success(f"Predicted House Price: ${prediction[0]:,.2f}")
 
     st.sidebar.title("About")
