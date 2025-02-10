@@ -64,6 +64,10 @@ def main():
     Please fill in the details below and click **Predict**.
     """)
 
+    # **Prediction placeholder (this will appear above the input fields)**
+    result_placeholder = st.empty()
+
+
     # Create a two-column layout for input fields
     col1, col2, col3 = st.columns(3)
 
@@ -103,7 +107,8 @@ def main():
         prediction = predict(input_data)
         # st.header("Prediction Result:")
         # print(prediction)
-        st.success(f"Predicted House Price: ${prediction[0]:,.2f}")
+        result_placeholder.success(f"Predicted House Price: ${prediction[0]:,.2f}")
+        # st.success(f"Predicted House Price: ${prediction[0]:,.2f}")
 
     st.sidebar.title("About")
     st.sidebar.info("This app uses a machine learning model to predict house price.")
